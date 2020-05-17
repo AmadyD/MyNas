@@ -1,4 +1,5 @@
 FROM java:8
 EXPOSE 8081
-ADD /target/MyNas-0.0.1-SNAPSHOT  /MyNas
-ENTRYPOINT ["java", "-jar","/MyNas"]
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
