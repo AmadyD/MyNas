@@ -1,5 +1,5 @@
 FROM openjdk:8
 EXPOSE 8081
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+VOLUME /var/lib/docker/tmp/
+ADD target/myNas-microservice.jar myNas-microservice.jar
+ENTRYPOINT ["java", "-jar","myNas-microservice.jar"]
