@@ -1,4 +1,5 @@
 FROM openjdk:8
 EXPOSE 8081
-ADD target/myNas-microservice.jar myNas-microservice.jar
-ENTRYPOINT ["java", "-jar","myNas-microservice.jar"]
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
