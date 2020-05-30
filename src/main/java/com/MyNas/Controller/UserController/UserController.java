@@ -74,6 +74,12 @@ public class UserController {
 		return dao.existsByLoginAndPassword(login, password);
 	}
 	
+	
+	@GetMapping(value = "/verifyLogin")
+	public boolean verifyLogin(@RequestParam String login) {
+		return dao.existsByLogin(login);
+	}
+	
 	@DeleteMapping(value ="/deleteUser")
 	public String deleteUser(User user) {
 		try {
